@@ -19,7 +19,7 @@ export class FormatConverter {
     if (fs.existsSync(outputFile)) {
       throw new YtdlMp3Error(`Output file already exists: ${outputFile}`);
     }
-    cp.execSync(`${this.ffmpegBinary} -loglevel 24 -i pipe:0 -vn -sn -c:a mp3 -ab 192k ${outputFile}`, {
+    cp.execSync(`${this.ffmpegBinary} -loglevel 24 -i pipe:0 -vn -sn -c:a mp3 -ab 64k -ac 1 ${outputFile}`, {
       input: videoData,
     });
   }
